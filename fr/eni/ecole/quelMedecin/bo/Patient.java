@@ -21,6 +21,7 @@ public class Patient {
 	private long numSecu;
 	private LocalDate dateNaissance;
 	private String commentaires;
+	private Adresse adresse;
 	
 	/**
 	 * @param nom
@@ -32,7 +33,7 @@ public class Patient {
 	 * @param commentaires
 	 */
 	public Patient(String nom, String prenom, String telephone, char sexe, long numSecu, LocalDate dateNaissance,
-			String commentaires) {
+			String commentaires, Adresse adresse) {
 		this.nom = nom.toUpperCase();
 		this.prenom = prenom;
 		this.setTelephone(telephone);
@@ -40,6 +41,7 @@ public class Patient {
 		this.numSecu = numSecu;
 		this.dateNaissance = dateNaissance;
 		this.setCommentaires(commentaires);
+		this.adresse = adresse;
 	}
 
 	public String getNom() {
@@ -68,11 +70,12 @@ public class Patient {
 	
 	public void afficher() {
 		System.out.printf("%s %s%nTéléphone : %s%nSexe : %s%n" +
-		"Numéro de Sécurité sociale : %d%nDate de naissance : %s%nCommentaires : %s%n",
+		"Numéro de Sécurité sociale : %d%nDate de naissance : %s%nCommentaires : %s%nAdresse : %n",
 		this.nom, this.prenom, this.telephone,
 		this.sexe == 'F' ? "Féminin" : "Masculin", this.numSecu,
 		this.dateNaissance.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG)),
 		this.commentaires != null ? this.commentaires : "[aucun commentaire]");
+		this.adresse.afficher();
 		}
 	
 	
