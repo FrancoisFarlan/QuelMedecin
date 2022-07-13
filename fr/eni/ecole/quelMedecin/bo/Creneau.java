@@ -8,13 +8,13 @@ public class Creneau {
 	
 	private LocalTime debutCreneau; 
 	private int duree; 
-	private MedecinGeneraliste medecin;
+	private Medecin medecin;
 	/**
 	 * @param debutCreneau
 	 * @param duree
 	 * @param medecin
 	 */
-	public Creneau(LocalTime debutCreneau, int duree, MedecinGeneraliste medecin) {
+	public Creneau(LocalTime debutCreneau, int duree, Medecin medecin) {
 		this.debutCreneau = debutCreneau;
 		this.duree = duree;
 		this.medecin = medecin;
@@ -23,7 +23,7 @@ public class Creneau {
 	
 	
 	
-	public MedecinGeneraliste getMedecin() {
+	public Medecin getMedecin() {
 		return medecin;
 	}
 

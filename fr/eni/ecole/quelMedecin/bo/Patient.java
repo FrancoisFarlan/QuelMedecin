@@ -11,17 +11,15 @@ import java.time.format.FormatStyle;
  * @author franc
  *
  */
-public class Patient {
+public class Patient extends Personne {
 	
 	//attributs d'instance
-	private String nom;
-	private String prenom;
-	private String telephone; 
+	
 	private char sexe; 
 	private long numSecu;
 	private LocalDate dateNaissance;
 	private String commentaires;
-	private Adresse adresse;
+	
 	
 	/**
 	 * @param nom
@@ -34,14 +32,12 @@ public class Patient {
 	 */
 	public Patient(String nom, String prenom, String telephone, char sexe, long numSecu, LocalDate dateNaissance,
 			String commentaires, Adresse adresse) {
-		this.nom = nom.toUpperCase();
-		this.prenom = prenom;
-		this.setTelephone(telephone);
+		super(nom.toUpperCase(), prenom, telephone, adresse); 
 		this.setSexe(sexe);
 		this.numSecu = numSecu;
 		this.dateNaissance = dateNaissance;
 		this.setCommentaires(commentaires);
-		this.adresse = adresse;
+		
 	}
 
 	public String getNom() {
@@ -69,9 +65,9 @@ public class Patient {
 	}
 	
 	public void afficher() {
-		System.out.printf("%s %s%nTéléphone : %s%nSexe : %s%n" +
+		super.afficher();
+		System.out.printf("Sexe : %s%n" +
 		"Numéro de Sécurité sociale : %d%nDate de naissance : %s%nCommentaires : %s%nAdresse : %n",
-		this.nom, this.prenom, this.telephone,
 		this.sexe == 'F' ? "Féminin" : "Masculin", this.numSecu,
 		this.dateNaissance.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG)),
 		this.commentaires != null ? this.commentaires : "[aucun commentaire]");
